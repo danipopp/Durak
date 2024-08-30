@@ -22,8 +22,16 @@ class DeckOfCards:
         return self.cards.pop() if self.cards else None
 
 class Player:
-     
-    pass
+    def __init__(self,name):
+         self.name = name
+         self.hand= []
+    
+    def draw(self,deck):
+        self.hand.append(deck.pop_cards())
+
+    def __repr__(self):
+        return f"{self.name}: {', '.join(map(str, self.hand))}"
+    
 
 class Game:
     # TODO
